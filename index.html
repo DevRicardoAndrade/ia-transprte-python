@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Previsão de tempo de entrega</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container mt-5">
+	<div class="row">
+		<div class="col-md-8 offset-md-2">
+			<h1 class="text-center mb-4">Previsão de tempo de entrega</h1>
+			<form action="{{ url_for('predict') }}" method="POST">
+				<div class="form-group">
+					<label for="distancia">Distância:</label>
+					<input type="number" class="form-control" id="distancia" name="distancia" required>
+				</div>
+				<div class="form-group">
+					<label for="trafego">Tráfego:</label>
+					<select class="form-control" id="trafego" name="trafego" required>
+						<option value="">Selecione</option>
+						<option value="leve">Leve</option>
+						<option value="moderado">Moderado</option>
+						<option value="pesado">Pesado</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="tipo_carga">Tipo de carga:</label>
+					<select class="form-control" id="tipo_carga" name="tipo_carga" required>
+						<option value="">Selecione</option>
+						<option value="alimentos">Alimentos</option>
+						<option value="eletronicos">Eletrônicos</option>
+						<option value="moveis">Móveis</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="hora_partida">Hora de partida:</label>
+					<input type="time" class="form-control" id="hora_partida" name="hora_partida" required>
+				</div>
+				<button type="submit" class="btn btn-primary btn-block mt-4">Prever tempo de entrega</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
